@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css', v=17345) }}">
+    <script rel="script" src="{{ url_for('static', filename='index.js', v=12345) }}"></script>
+</head>
+<body style="background-color: gray">
+
+<div class="container">
+    <div class="row" style="margin-top: 10px">
+        <p class="text-center" style="font-weight: bolder; font-size: 60px; color: white; font-family: Arial, Helvetica, sans-serif">
+            Tomato Leaf Disease Detection
+        </p>
+        <hr/>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <div class="col-md-2 col-sm-2 col-xs-1"></div>
+                <div class="col-md-8 col-sm-8 col-xs-10">
+                    <div class="main-img-preview">
+                        <div class="row">
+                            <img class="thumbnail img-preview" src="/static/logo2.png" title="Preview Logo"
+                                 width="100%" height="400">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <form action="{{ url_for('img') }}" method="post">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="fakeUploadLogo" class="form-control fake-shadow"
+                                           placeholder="Choose File"
+                                           disabled="disabled" name="img" value="">
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="input-group-btn">
+                                        <div class="fileUpload btn btn-danger fake-shadow">
+                                            <span><i class="glyphicon glyphicon-upload"></i> Upload Leaf Photo</span>
+                                            <input id="logo-id" name="logo" type="file" class="attachment_upload"
+                                                   value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <input type="submit" value="submit" class="form-control btn btn-success">
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-1"></div>
+                <p class="help-block">* Upload your company logo.</p>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <p style="font-size: 40px; font-weight: bold; color: white">
+                         Please Wait Until The Result Is Shown Below
+                    </p>
+                </div>
+                <br>
+                <div class="col-md-12" style="width: 100%; height: 200px; background-color: white">
+                    <p style="font-size: 60px; font-weight: bold; color: black; text-align: center; margin-top: 50px">
+                        {{ disease_name }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
